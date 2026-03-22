@@ -76,6 +76,7 @@
       text-decoration: none;
       font-weight: bold;
       transition: 0.3s;
+     
     }
 
     .btn:hover {
@@ -87,6 +88,14 @@
       font-size: 14px;
       color: #555;
       word-break: break-all;
+    }
+    @keyframes mymove {
+         from {
+            transform: scale(0.7);
+         }
+         to {
+            transform: scale(1)
+         }
     }
   </style>
 </head>
@@ -155,9 +164,11 @@
       <p><strong>If you are interested in joining the camp, please register below 👇</strong></p>
 
       <a 
+        style=" animation: mymove 2s infinite;"
         href="https://docs.google.com/forms/d/17PWuNGsJYTRTrNHJXs2dR4FmRP71iUHeXl6iOaC8_WY/edit" 
         target="_blank" 
         class="btn"
+        
       >
         Register Now
       </a>
@@ -168,13 +179,13 @@
       </p>
     </div>
 
-    <div class="footer">
+    <!-- <div class="footer">
       ENQUIRIES
     </div>
 
     <div class="contact">
       📞 WhatsApp: +91 7593807094
-    </div>
+    </div> -->
     <a 
     href="https://wa.me/917593807094?text=Hi%20I%20am%20interested%20in%20joining%20the%20camp"
    target="_blank"
@@ -186,6 +197,8 @@
     border-radius:8px;
     text-decoration:none;
     font-weight:bold;
+     margin-top: 20px;
+     animation: mymove 2s infinite;
      "
   >
   💬 Chat on WhatsApp
