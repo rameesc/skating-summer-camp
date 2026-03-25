@@ -2,6 +2,7 @@
 
 const popup=document.getElementsByClassName("global")[0]
 const time=document.getElementsByClassName("time")[0]
+const registerClose=document.getElementsByClassName("register-close-timer")[0]
 const myElement=document.getElementById("back_btn")
 
  
@@ -24,43 +25,40 @@ myElement.addEventListener("click",()=>{
   window.history.back()
 })
 
-         let diff = Math.max(0, 1774433235583 - Date.now());
+// 1. Calculate the initial difference once
+let diff = Math.max(0, 1774433235583 - Date.now());
 
-    let minutes = Math.floor(diff / (1000 * 60));
-    let seconds = Math.floor((diff % (1000 * 60)) / 1000);    
-function showTimerToClose(){
+// 2. Convert total milliseconds into total seconds
+let totalSeconds = Math.floor(diff / 1000);
 
-    
-
-    let value=10
-
-    if(minutes==0 && seconds==0){
-        time.style.display="none"
-        return
+function showTimerToClose() {
+    // If time is already up, hide elements immediately
+    if (totalSeconds <= 0) {
+        time.style.display = "none";
+        registerClose.style.display = "none";
+        return;
     }
 
-    const cleareTimer=setInterval(()=>{
-
-        if(minutes==0 && seconds==0) {
-            clearInterval(cleareTimer)
-            time.style.display="none"
-            return
+    const clearTimer = setInterval(() => {
+        if (totalSeconds <= 0) {
+            clearInterval(clearTimer);
+            time.style.display = "none";
+            return;
         }
 
-        if(seconds < 1){
-            minutes--
-            seconds=60
-        }
+        totalSeconds--;
 
-       seconds--
-       
-         time.innerText=`Registration closes soon : ${minutes}:${seconds--}`
+        // Calculate minutes and seconds from the remaining totalSeconds
+        let m = Math.floor(totalSeconds / 60);
+        let s = totalSeconds % 60;
 
-    },1000)
-   
-
+        // Use padStart to keep the format looking like 05:09 instead of 5:9
+        time.innerText = `Registration closes soon : ${m}:${s.toString().padStart(2, '0')}`;
+        
+    }, 1000);
 }
-showTimerToClose()
+
+showTimerToClose();
 
 
 
