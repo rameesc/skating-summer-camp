@@ -22,7 +22,7 @@ function autoClose(){
 }
 autoClose()
 myElement.addEventListener("click",()=>{
-  window.history.back()
+  window.history.go(-1)
 })
 
 // 1. Calculate the initial difference once
