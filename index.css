@@ -13,7 +13,7 @@
     left: 50%;
     transform: translate(-50%,-50%);
     background-color: aliceblue;
-    color: red;
+    color: rgb(121, 9, 9);
     font-weight: bold;
     font-size: 20px;
     max-width: 300px;
@@ -34,4 +34,15 @@
 }
 .popup button:hover{
     background-color: rgb(7, 87, 7);
+}
+.register-close-timer{
+    background-color: rgb(114, 9, 9);
+    text-align: center;
+    padding: 1px;
+    position: fixed;
+    top: 0%;
+    width: 100%;
+    color: aliceblue;
+    font-weight: bold;
+
 }
